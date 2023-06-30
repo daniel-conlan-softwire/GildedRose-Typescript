@@ -109,4 +109,18 @@ describe('Gilded Rose', function () {
         expect(items[0].quality).to.equal(0);
     });
 
+    it('Quality of conjured items decreases twice as fast than regular items when in date', function() {
+        const gildedRose = new GildedRose([ new Item('Conjured Mana Cake', 1, 10) ]);
+        const items = gildedRose.updateQuality();
+
+        expect(items[0].quality).to.equal(8);
+    });
+
+    it('Quality of conjured items decreases four times as fast than regular items when out of date', function() {
+        const gildedRose = new GildedRose([ new Item('Conjured Mana Cake', 0, 10) ]);
+        const items = gildedRose.updateQuality();
+
+        expect(items[0].quality).to.equal(6);
+    });
+
 });

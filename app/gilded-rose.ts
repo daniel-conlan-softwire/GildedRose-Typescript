@@ -53,7 +53,16 @@ export class GildedRose {
                 case 'Sulfuras, Hand of Ragnaros':
                     qualityLimit = 80;
                     break;
+                
+                case 'Conjured Mana Cake':
 
+                    if (this.items[i].sellIn > 0) {
+                        this.items[i].quality -= 2;
+                    } else {
+                        this.items[i].quality -= 4;
+                    }
+
+                    break;
 
                 // Regular Items
                 default:
